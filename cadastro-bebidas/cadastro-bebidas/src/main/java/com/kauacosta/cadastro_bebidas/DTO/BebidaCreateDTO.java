@@ -14,18 +14,18 @@ import lombok.Setter;
 @NoArgsConstructor
 public class BebidaCreateDTO {
 
-    @NotBlank
+    @NotBlank(message = "O nome da bebida é obrigatório")
     private String nomeBebida;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "O preço da bebida é obrigatório")
+    @Positive(message = "O valor deve ser maior que zero")
     private Double precoBebida;
 
-    @NotBlank
+    @NotBlank(message = "A descrição da bebida é obrigatória")
     private String descricaoBebida;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "A quantidade da bebida é obrigatória")
+    @Positive(message = "A quantidade deve ser maior que zero")
     private Long quantidadeBebida;
 
 

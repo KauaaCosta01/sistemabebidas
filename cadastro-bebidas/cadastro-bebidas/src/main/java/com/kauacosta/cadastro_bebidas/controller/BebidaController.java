@@ -6,6 +6,7 @@ import com.kauacosta.cadastro_bebidas.DTO.BebidaResponseDTO;
 import com.kauacosta.cadastro_bebidas.DTO.BebidaUpdateDTO;
 import com.kauacosta.cadastro_bebidas.business.BebidaService;
 import com.kauacosta.cadastro_bebidas.infrastructure.entitys.Bebida;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class BebidaController {
     }
 
     @PostMapping("/criar")
-    public ResponseEntity<BebidaResponseDTO> salvarBebida(@RequestBody BebidaCreateDTO createDTO) {
+    public ResponseEntity<BebidaResponseDTO> salvarBebida(@RequestBody @Valid BebidaCreateDTO createDTO) {
         BebidaResponseDTO responseDTO = bebidaService.salvarBebida(createDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
     }
